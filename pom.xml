@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
   <version>1.0-SNAPSHOT</version>
-
+  <packaging>jar</packaging>
   <name>my-app</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
@@ -14,6 +15,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    <sonar.projectKey>Maven</sonar.projectKey>
+    <sonar.projectName>'Maven'</sonar.projectName>
   </properties>
 
   <dependencyManagement>
@@ -34,6 +37,12 @@
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.raj</groupId>
+      <artifactId>maven-war-project</artifactId>
+      <version>1.0</version>
+      <type>war</type>
+    </dependency>
     <!-- Optionally: parameterized tests support -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -42,8 +51,32 @@
     </dependency>
   </dependencies>
 
+  <!--To download from remote repo-->
+  <repositories>
+    <repository>
+      <!--This is used to match the configuration in the settings.xml file-->
+      <id>nexus</id>
+      <name>raj-mvn-release-repository</name>
+      <url>http://localhost:8081/repository/raj-mvn-release-repository/ </url>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>nexus</id>
+      <name>raj-mvn-release-repository</name>
+      <url>http://localhost:8081/repository/raj-mvn-release-repository/</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus</id>
+      <name>raj-mvn-snapshot-repository</name>
+      <url>http://localhost:8081/repository/raj-mvn-snapshot-repository/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
+      <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
