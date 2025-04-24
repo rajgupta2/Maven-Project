@@ -37,12 +37,6 @@
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.raj</groupId>
-      <artifactId>maven-war-project</artifactId>
-      <version>1.0</version>
-      <type>war</type>
-    </dependency>
     <!-- Optionally: parameterized tests support -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
