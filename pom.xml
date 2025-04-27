@@ -15,8 +15,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <sonar.projectKey>Maven</sonar.projectKey>
-    <sonar.projectName>'Maven'</sonar.projectName>
+    <!-- <sonar.projectKey>Maven</sonar.projectKey>
+    <sonar.projectName>'Maven'</sonar.projectName> -->
   </properties>
 
   <dependencyManagement>
